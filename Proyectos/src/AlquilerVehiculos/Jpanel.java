@@ -47,16 +47,16 @@ public class Jpanel extends JPanel {
 			
 			Vehiculo.SetCalculo();
 
-			textFieldResultado.setText(Vehiculo.GetInformacion());
+			textFieldResultado.setText((Nombre.getNombre()) + (Vehiculo.GetInformacion()));
 		});
 		btnCalcular.setBounds(54, 210, 89, 23);
 		add(btnCalcular);
 		
 		JButton btnDatos = new JButton("Datos");
 		btnDatos.addActionListener(e -> {
-			AgregarArrayNombre();
-			AgregarArrayDias();
-			AgregarArrayVehiculos();
+			AgregarNombre();
+			AgregarDias();
+			AgregarVehiculos();
 		});
 		btnDatos.setBounds(212, 210, 89, 23);
 		add(btnDatos);
@@ -68,21 +68,38 @@ public class Jpanel extends JPanel {
 
 	}
 	
-	public void AgregarArrayNombre() {
+	public void AgregarNombre() {
 
 		Nombre.setNombre(textFieldNombre.getText());
 		textFieldNombre.setText("");
 	}
 
-	public void AgregarArrayVehiculos() {
+	public void AgregarVehiculos() {
 
 		Vehiculo.SetVehiculo((textFielMarca.getText()));
 		textFielMarca.setText("");
 	}
 
-	public void AgregarArrayDias() {
+	public void AgregarDias() {
 
-		Vehiculo.SetDias((Double.parseDouble(textFieldDias.getText())));
+		isNumber((textFieldDias.getText()));
 		textFieldDias.setText("");
+	}
+	
+	public boolean isNumber(String Numero) {
+		
+		Boolean resultado;
+		
+		try {
+			Vehiculo.SetDias((Double.parseDouble(Numero)));
+			resultado=true;
+		}catch(Exception e) {
+			
+			System.out.println("Ingrese dias");
+			resultado=false;
+		}
+		
+		return resultado;
+		
 	}
 }
