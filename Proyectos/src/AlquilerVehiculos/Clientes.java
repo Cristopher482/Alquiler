@@ -1,26 +1,25 @@
 package AlquilerVehiculos;
 
-import java.util.ArrayList;
-
 public class Clientes {
+
+	private static String Nombre;
+
 	
-	String Nombre;
-	
-	/*public Clientes(String Nombre) {
-		
-		this.Nombre=Nombre;
-		
-	}*/
-	
+	  public Clientes(/*String Nombre*/) {
+	  
+	  /*this.Nombre=Nombre;*/
+	  
+	  }
+	 
+
 	public String getNombre() {
-		
+
 		return Nombre;
 	}
-	
-public void setNombre(String Nombre) {
-		
-	this.Nombre=Nombre;
+
+	public void setNombre(String Nombre) {
+
+		Clientes.Nombre = Nombre;
 	}
-	
 
 }

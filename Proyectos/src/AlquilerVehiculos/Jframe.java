@@ -9,8 +9,6 @@ import javax.swing.border.EmptyBorder;
 
 public class Jframe extends JFrame {
 	private JPanel contentPane;
-	
-	Jpanel lamina=new Jpanel();
 
 	/**
 	 * Launch the application.
@@ -32,14 +30,17 @@ public class Jframe extends JFrame {
 	 * Create the frame.
 	 */
 	public Jframe() {
+		Jpanel lamina=new Jpanel();
 		setTitle("Rent-A-Car");	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 459, 366);
+		setBounds(100, 100, 526, 418);
+		setLocationRelativeTo(null);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		add(lamina);
+		getContentPane().add(lamina);
+		//setIconImage(newImageIcon(getClass().getResource("Image/icon.png")).getImage());icono
 	}
-
 }

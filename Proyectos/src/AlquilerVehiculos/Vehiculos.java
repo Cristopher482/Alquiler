@@ -1,16 +1,14 @@
 package AlquilerVehiculos;
 
-import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 
 public class Vehiculos {
 
-	String Vehiculo;
+	private static String Vehiculo;
 
-	Double Resultado;
+	private static Double Resultado;
 
-	Double Dias;
+	private static Double Dias;
 	
 	public Vehiculos(/*String Vehiculo, Double Dias*/) {
 
@@ -95,7 +93,7 @@ public class Vehiculos {
 
 		default:
 
-			JOptionPane.showMessageDialog(null, "La opcion no es correcta");
+			JOptionPane.showMessageDialog(null, "La opcion no es correcta");//mejorar codigo
 
 		}
 
@@ -103,8 +101,14 @@ public class Vehiculos {
 
 	public String GetInformacion() {
 
-		return " Los dias de alquiler fueron " + Math.round(Dias) + " y el costo total por alquiler de la marca "
-				+ Vehiculo + " fue de " + Math.round(Resultado);
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append(" Los dias de alquiler fueron ");
+		stringBuilder.append(Math.round(Dias));
+		stringBuilder.append(" y el costo total por alquiler de la marca ");
+		stringBuilder.append(Vehiculo);
+		stringBuilder.append(" fue de ");
+		stringBuilder.append(Math.round(Resultado));
+		return stringBuilder.toString();
 	}
 
 }
