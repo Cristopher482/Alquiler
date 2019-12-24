@@ -9,39 +9,33 @@ public class Vehiculos {
 	private static Double Resultado;
 
 	private static Double Dias;
+
+	/*public Vehiculos(String Vehiculo, Double Dias) {
+		
+		Vehiculos.Vehiculo=Vehiculo;
+		Vehiculos.Dias=Dias;
+	}*/
 	
-	public Vehiculos(/*String Vehiculo, Double Dias*/) {
+	public void SetVehiculo(String Vehiculo) {
 
-		/*this.Vehiculo = Vehiculo;
-
-		this.Dias = Dias;*/
+		Vehiculos.Vehiculo = Vehiculo;
 	}
 
-	
-	  public void SetVehiculo(String Vehiculo) {
-	  
-	  this.Vehiculo = Vehiculo; 
-	  }
-	  
-	  public  String getVehiculo() {
-			// TODO Auto-generated method stub
-			return Vehiculo;
-		}
-	  
-	  public void SetDias(double Dias) {
-	  
-	  this.Dias = Dias; 
-	  }
-	  
-		public Double getDias() {
-			// TODO Auto-generated method stub
-			return Dias;
-		}
-	 
+	public String getVehiculo() {
+		return Vehiculo;
+	}
+
+	public void SetDias(double Dias) {
+
+		Vehiculos.Dias = Dias;
+	}
+
+	public Double getDias() {
+		return Dias;
+	}
 
 	public void SetCalculo() {
 
-		
 		switch (Vehiculo) {
 
 		case "Honda":
@@ -93,13 +87,13 @@ public class Vehiculos {
 
 		default:
 
-			JOptionPane.showMessageDialog(null, "La opcion no es correcta");//mejorar codigo
+			JOptionPane.showMessageDialog(null, "La opcion no es correcta");
 
 		}
 
 	}
 
-	public String GetInformacion() {
+	public String toString() {
 
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(" Los dias de alquiler fueron ");

@@ -6,13 +6,13 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 public class Jpanel2 extends JPanel {
+	
 	private JTextField textField;
 	private Clientes Nombre=new Clientes();
 	private Vehiculos Vehiculo=new Vehiculos();
-	/**
-	 * Create the panel.
-	 */
+	
 	public Jpanel2() {
+		
 		setLayout(null);
 		
 		JLabel lblResultado = new JLabel("Resultado:");
@@ -25,7 +25,7 @@ public class Jpanel2 extends JPanel {
 		textField.setColumns(10);
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append((Nombre.getNombre()));
-		stringBuilder.append((Vehiculo.GetInformacion()));
+		stringBuilder.append((Vehiculo.toString()));
 		textField.setText(stringBuilder.toString());
 		
 		JButton btnInicio = new JButton("Inicio");

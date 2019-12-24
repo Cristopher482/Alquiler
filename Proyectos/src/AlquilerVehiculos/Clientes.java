@@ -4,14 +4,10 @@ public class Clientes {
 
 	private static String Nombre;
 
-	
-	  public Clientes(/*String Nombre*/) {
-	  
-	  /*this.Nombre=Nombre;*/
-	  
-	  }
-	 
-
+	/*public Clientes(String Nombre){
+		
+		Clientes.Nombre=Nombre;
+	}*/
 	public String getNombre() {
 
 		return Nombre;
