@@ -8,7 +8,7 @@ import javax.swing.JButton;
 public class Jpanel2 extends JPanel {
 	
 	private JTextField textField;
-	private Clientes Nombre=new Clientes();
+	private Clientes Cliente=new Clientes();
 	private Vehiculos Vehiculo=new Vehiculos();
 	
 	public Jpanel2() {
@@ -24,8 +24,9 @@ public class Jpanel2 extends JPanel {
 		add(textField);
 		textField.setColumns(10);
 		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append((Nombre.getNombre()));
-		stringBuilder.append((Vehiculo.toString()));
+		stringBuilder.append(Cliente);
+		stringBuilder.append(" informacion del prestamo es ");
+		stringBuilder.append(Vehiculo);
 		textField.setText(stringBuilder.toString());
 		
 		JButton btnInicio = new JButton("Inicio");

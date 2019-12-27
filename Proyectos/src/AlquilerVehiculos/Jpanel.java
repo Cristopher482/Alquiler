@@ -11,14 +11,18 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Jpanel extends JPanel {
-	private Clientes Nombre = new Clientes();
+	private Clientes Cliente = new Clientes();
 	private Vehiculos Vehiculo = new Vehiculos();
-	private JTextField textFieldNombre, textFieldDias;
-	private Choice choice = new Choice();
-	private ImageIcon imagen;
-	private JLabel labelfoto;
+	private JTextField textFieldNombre, textFieldDias,textFieldDireccion,textFieldTelefono;
+	private Choice Choice = new Choice();
+	private ImageIcon Imagen;
+	private JLabel LabelFoto;
 	
 	public Jpanel() {
 		
@@ -34,13 +38,13 @@ public class Jpanel extends JPanel {
 		JLabel lblMarca = new JLabel("Marca");
 		lblMarca.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblMarca.setForeground(Color.WHITE);
-		lblMarca.setBounds(105, 101, 46, 14);
+		lblMarca.setBounds(105, 192, 46, 14);
 		add(lblMarca);
 
 		JLabel lblDias = new JLabel("Dias");
 		lblDias.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblDias.setForeground(Color.WHITE);
-		lblDias.setBounds(105, 144, 46, 14);
+		lblDias.setBounds(105, 232, 46, 14);
 		add(lblDias);
 
 		textFieldNombre = new JTextField();
@@ -49,7 +53,7 @@ public class Jpanel extends JPanel {
 		textFieldNombre.setColumns(10);
 
 		textFieldDias = new JTextField();
-		textFieldDias.setBounds(257, 138, 129, 20);
+		textFieldDias.setBounds(257, 232, 129, 20);
 		add(textFieldDias);
 		textFieldDias.setColumns(10);
 
@@ -57,11 +61,13 @@ public class Jpanel extends JPanel {
 		btnDatos.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnDatos.addActionListener(e -> {
 			AgregarNombre();
+			AgregarDireccion();
+			AgregarTelefono();
+			AgregarMarca();
 			AgregarDias();
-			AgregarVehiculos();
 		});
-		btnDatos.setBounds(275, 304, 89, 23);
-		btnDatos.setBackground(new Color(242, 38, 19));
+		btnDatos.setBounds(173, 304, 89, 23);
+		btnDatos.setBackground(Color.GREEN);
 		add(btnDatos);
 
 		JButton btnCalcular = new JButton("Calcular");
@@ -71,16 +77,16 @@ public class Jpanel extends JPanel {
 			Vehiculo.SetCalculo();
 			Jframe2 MarcoResultado = new Jframe2(btnDatos);
 		});
-		btnCalcular.setBounds(92, 304, 89, 23);
+		btnCalcular.setBounds(32, 304, 89, 23);
 		add(btnCalcular);
 		
-		choice.addItemListener(arg0 -> CambioLogo());
-		choice.setBounds(257, 101, 129, 20);
-		add(choice);
-		choice.add("Honda");
-		choice.add("Toyota");
-		choice.add("Nissan");
-		choice.add("Bmw");
+		Choice.addItemListener(arg0 -> CambioLogo());
+		Choice.setBounds(257, 192, 129, 20);
+		add(Choice);
+		Choice.add("Honda");
+		Choice.add("Toyota");
+		Choice.add("Nissan");
+		Choice.add("Bmw");
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 153, 0));
@@ -94,42 +100,54 @@ public class Jpanel extends JPanel {
 		lblRentacar.setBounds(184, 11, 119, 23);
 		panel.add(lblRentacar);
 
-		labelfoto = new JLabel(imagen);
-		labelfoto.setBounds(392, 89, 46, 45);
-		add(labelfoto);
+		LabelFoto = new JLabel(Imagen);
+		LabelFoto.setBounds(392, 177, 46, 45);
+		add(LabelFoto);
 		
-		TextArea textArea = new TextArea();
-		textArea.setBounds(96, 176, 302, 116);
-		add(textArea);
+		JLabel lbldireccion = new JLabel("Direccion");
+		lbldireccion.setForeground(Color.WHITE);
+		lbldireccion.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lbldireccion.setBounds(105, 110, 76, 14);
+		add(lbldireccion);
+		
+		textFieldDireccion = new JTextField();
+		textFieldDireccion.setText("example@email.com");
+		textFieldDireccion.setBounds(257, 110, 129, 20);
+		add(textFieldDireccion);
+		textFieldDireccion.setColumns(10);
+		
+		JLabel lbltelefono = new JLabel("Telefono");
+		lbltelefono.setForeground(Color.WHITE);
+		lbltelefono.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lbltelefono.setBounds(105, 152, 76, 14);
+		add(lbltelefono);
+		
+		textFieldTelefono = new JTextField();
+		textFieldTelefono.setBounds(257, 152, 129, 20);
+		add(textFieldTelefono);
+		textFieldTelefono.setColumns(10);
+		
+		JButton btnborrar = new JButton("Borrar");
+		btnborrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		btnborrar.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnborrar.setBackground(new Color(242, 38, 19));
+		btnborrar.setBounds(297, 306, 89, 23);
+		add(btnborrar);
 	}
-
-	public void AgregarNombre() {
-
-		Nombre.setNombre(textFieldNombre.getText());
-		textFieldNombre.setText("");
-	}
-
-	public void AgregarVehiculos() {
-
-		Vehiculo.SetVehiculo(choice.getSelectedItem()/* (textFielMarca.getText()) */);
-	}
-
-	public void AgregarDias() {
-
-		isNumber((textFieldDias.getText()));
-		textFieldDias.setText("");
-	}
-
-	public boolean isNumber(String Numero) {
+	
+	public boolean ValidarNumero(String Numero) {
 
 		Boolean resultado;
 
 		try {
-			Vehiculo.SetDias((Double.parseDouble(Numero)));
+			Integer.parseInt(Numero);
 			resultado = true;
 		} catch (Exception e) {
 
-			JOptionPane.showMessageDialog(null, "Ingrese dias numericos");
 			resultado = false;
 		}
 
@@ -137,22 +155,64 @@ public class Jpanel extends JPanel {
 
 	}
 	
+	
 	public void CambioLogo() {
 		
-		switch(choice.getSelectedItem()) {
+		switch(Choice.getSelectedItem()) {
 		
 		case "Bmw":
 			
-			imagen = new ImageIcon("src/image/bmw2.PNG");
-			labelfoto.setIcon(imagen);
+			Imagen = new ImageIcon("src/image/bmw2.PNG");
+			LabelFoto.setIcon(Imagen);
 		break;
 		
 		case "Toyota":
 			
-			imagen = new ImageIcon("src/image/toyota.PNG");
-			labelfoto.setIcon(imagen);
+			Imagen = new ImageIcon("src/image/toyota.PNG");
+			LabelFoto.setIcon(Imagen);
 		break;
 		}
 	}
 	
+	//------------------------------------- Metodos para agregar informacion
+
+	public void AgregarNombre() {
+
+		Cliente.setNombre(textFieldNombre.getText());
+		textFieldNombre.setText("");
+	}
+	
+	public void AgregarDireccion() {
+
+		Cliente.setDireccion(textFieldDireccion.getText());
+		textFieldDireccion.setText("");
+	}
+	
+	public void AgregarTelefono() {
+		
+		if(ValidarNumero(textFieldTelefono.getText())==true){
+			Cliente.setTelefono(Integer.parseInt(textFieldTelefono.getText()));
+		}else {
+			JOptionPane.showMessageDialog(null, "Ingrese numero telefonico");
+		}
+		
+		textFieldTelefono.setText("");
+	}
+
+	public void AgregarMarca() {
+
+		Vehiculo.SetVehiculo(Choice.getSelectedItem()/* (textFielMarca.getText()) */);
+	}
+
+	public void AgregarDias() {
+
+		if(ValidarNumero(textFieldDias.getText())==true){
+			Vehiculo.SetDias(Integer.parseInt(textFieldDias.getText()));
+		}else {
+			JOptionPane.showMessageDialog(null, "Ingrese numero dia numerico");
+		}
+		
+		textFieldDias.setText("");
+	}
+
 }

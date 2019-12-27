@@ -34,7 +34,7 @@ public class Vehiculos {
 		return Dias;
 	}
 
-	public void SetCalculo() {
+	public  void SetCalculo() {
 
 		switch (Vehiculo) {
 
