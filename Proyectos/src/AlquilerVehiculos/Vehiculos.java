@@ -87,7 +87,7 @@ public class Vehiculos {
 
 		default:
 
-			JOptionPane.showMessageDialog(null, "La opcion no es correcta");
+			JOptionPane.showMessageDialog(null, "Elija Alguna Marca de carro");
 
 		}
 

@@ -15,16 +15,22 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
 
-public class Jpanel extends JPanel {
+public class Menu_Jpanel extends JPanel {
 	private Clientes Cliente = new Clientes();
 	private Vehiculos Vehiculo = new Vehiculos();
 	private JTextField textFieldNombre, textFieldDias,textFieldDireccion,textFieldTelefono;
 	private Choice Choice = new Choice();
 	private ImageIcon Imagen;
 	private JLabel LabelFoto;
-	
-	public Jpanel() {
+	private String nombre="";
+	public Menu_Jpanel() {
 		
 		setLayout(null);
 		setBackground(new Color(44, 62, 80));
@@ -32,30 +38,35 @@ public class Jpanel extends JPanel {
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNombre.setForeground(new Color(255, 255, 255));
-		lblNombre.setBounds(105, 68, 76, 14);
+		lblNombre.setBounds(33, 136, 76, 14);
 		add(lblNombre);
 
 		JLabel lblMarca = new JLabel("Marca");
 		lblMarca.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblMarca.setForeground(Color.WHITE);
-		lblMarca.setBounds(105, 192, 46, 14);
+		lblMarca.setBounds(308, 136, 46, 14);
 		add(lblMarca);
 
 		JLabel lblDias = new JLabel("Dias");
 		lblDias.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblDias.setForeground(Color.WHITE);
-		lblDias.setBounds(105, 232, 46, 14);
+		lblDias.setBounds(308, 212, 46, 14);
 		add(lblDias);
 
 		textFieldNombre = new JTextField();
-		textFieldNombre.setBounds(257, 68, 129, 20);
+		textFieldNombre.setBounds(33, 161, 129, 20);
 		add(textFieldNombre);
 		textFieldNombre.setColumns(10);
 
 		textFieldDias = new JTextField();
-		textFieldDias.setBounds(257, 232, 129, 20);
+		textFieldDias.setBounds(308, 237, 129, 20);
 		add(textFieldDias);
 		textFieldDias.setColumns(10);
+		
+		TextArea textArea = new TextArea();
+		textArea.setEditable(false);
+		textArea.setBounds(225, 288, 380, 111);
+		add(textArea);
 
 		JButton btnDatos = new JButton("Datos");
 		btnDatos.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -66,7 +77,7 @@ public class Jpanel extends JPanel {
 			AgregarMarca();
 			AgregarDias();
 		});
-		btnDatos.setBounds(173, 304, 89, 23);
+		btnDatos.setBounds(265, 425, 89, 23);
 		btnDatos.setBackground(Color.GREEN);
 		add(btnDatos);
 
@@ -75,55 +86,44 @@ public class Jpanel extends JPanel {
 		btnCalcular.setBackground(new Color(34, 167, 240));
 		btnCalcular.addActionListener(e -> {
 			Vehiculo.SetCalculo();
-			Jframe2 MarcoResultado = new Jframe2(btnDatos);
+			textArea.setText(Cliente.toString() + Vehiculo.toString());
 		});
-		btnCalcular.setBounds(32, 304, 89, 23);
+		btnCalcular.setBounds(10, 425, 89, 23);
 		add(btnCalcular);
 		
 		Choice.addItemListener(arg0 -> CambioLogo());
-		Choice.setBounds(257, 192, 129, 20);
-		add(Choice);
+		Choice.setBounds(308, 161, 129, 20);
+		Choice.add("");
 		Choice.add("Honda");
 		Choice.add("Toyota");
 		Choice.add("Nissan");
 		Choice.add("Bmw");
-
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 153, 0));
-		panel.setBounds(0, 0, 526, 45);
-		add(panel);
-		panel.setLayout(null);
-
-		JLabel lblRentacar = new JLabel("Rent-A-Car");
-		lblRentacar.setForeground(Color.WHITE);
-		lblRentacar.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblRentacar.setBounds(184, 11, 119, 23);
-		panel.add(lblRentacar);
+		add(Choice);
 
 		LabelFoto = new JLabel(Imagen);
-		LabelFoto.setBounds(392, 177, 46, 45);
+		LabelFoto.setBounds(449, 152, 46, 45);
 		add(LabelFoto);
 		
 		JLabel lbldireccion = new JLabel("Direccion");
 		lbldireccion.setForeground(Color.WHITE);
 		lbldireccion.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lbldireccion.setBounds(105, 110, 76, 14);
+		lbldireccion.setBounds(33, 212, 76, 14);
 		add(lbldireccion);
 		
 		textFieldDireccion = new JTextField();
 		textFieldDireccion.setText("example@email.com");
-		textFieldDireccion.setBounds(257, 110, 129, 20);
+		textFieldDireccion.setBounds(33, 237, 129, 20);
 		add(textFieldDireccion);
 		textFieldDireccion.setColumns(10);
 		
 		JLabel lbltelefono = new JLabel("Telefono");
 		lbltelefono.setForeground(Color.WHITE);
 		lbltelefono.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lbltelefono.setBounds(105, 152, 76, 14);
+		lbltelefono.setBounds(33, 281, 76, 14);
 		add(lbltelefono);
 		
 		textFieldTelefono = new JTextField();
-		textFieldTelefono.setBounds(257, 152, 129, 20);
+		textFieldTelefono.setBounds(33, 306, 129, 20);
 		add(textFieldTelefono);
 		textFieldTelefono.setColumns(10);
 		
@@ -135,8 +135,33 @@ public class Jpanel extends JPanel {
 		});
 		btnborrar.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnborrar.setBackground(new Color(242, 38, 19));
-		btnborrar.setBounds(297, 306, 89, 23);
+		btnborrar.setBounds(499, 425, 89, 23);
 		add(btnborrar);
+		
+		
+		
+		JLabel lblIngreseSuInfromacion = new JLabel("Ingrese su infromacion");
+		lblIngreseSuInfromacion.setForeground(Color.WHITE);
+		lblIngreseSuInfromacion.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
+		lblIngreseSuInfromacion.setBounds(175, 56, 287, 46);
+		add(lblIngreseSuInfromacion);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 706, 42);
+		menuBar.setBackground(Color.GRAY);
+		add(menuBar);
+		
+		JMenu mnOpciones = new JMenu("opciones");
+		menuBar.add(mnOpciones);
+		
+		JMenu mnTarifas = new JMenu("Tarifas");
+		menuBar.add(mnTarifas);
+		
+		JMenu mnTerminos = new JMenu("Acerca de");
+		menuBar.add(mnTerminos);
+		
+	
+		
 	}
 	
 	public boolean ValidarNumero(String Numero) {
@@ -178,8 +203,15 @@ public class Jpanel extends JPanel {
 
 	public void AgregarNombre() {
 
-		Cliente.setNombre(textFieldNombre.getText());
-		textFieldNombre.setText("");
+		nombre=textFieldNombre.getText().trim();
+		if (nombre.equals("")) {
+
+			JOptionPane.showMessageDialog(null, "Debes ingresar tu nombre");
+		}else {
+			Cliente.setNombre(textFieldNombre.getText());
+			textFieldNombre.setText("");
+		}
+		
 	}
 	
 	public void AgregarDireccion() {
@@ -190,8 +222,8 @@ public class Jpanel extends JPanel {
 	
 	public void AgregarTelefono() {
 		
-		if(ValidarNumero(textFieldTelefono.getText())==true){
-			Cliente.setTelefono(Integer.parseInt(textFieldTelefono.getText()));
+		if(ValidarNumero(textFieldTelefono.getText().trim())==true){
+			Cliente.setTelefono(Integer.parseInt(textFieldTelefono.getText().trim()));
 		}else {
 			JOptionPane.showMessageDialog(null, "Ingrese numero telefonico");
 		}
@@ -207,12 +239,11 @@ public class Jpanel extends JPanel {
 	public void AgregarDias() {
 
 		if(ValidarNumero(textFieldDias.getText())==true){
-			Vehiculo.SetDias(Integer.parseInt(textFieldDias.getText()));
+			Vehiculo.SetDias(Integer.parseInt(textFieldDias.getText().trim()));
 		}else {
 			JOptionPane.showMessageDialog(null, "Ingrese numero dia numerico");
 		}
 		
 		textFieldDias.setText("");
 	}
-
 }
