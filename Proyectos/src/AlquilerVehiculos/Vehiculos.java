@@ -1,7 +1,5 @@
 package AlquilerVehiculos;
 
-import javax.swing.JOptionPane;
-
 public class Vehiculos {
 
 	private static String Vehiculo;
@@ -10,12 +8,12 @@ public class Vehiculos {
 
 	private static Double Dias;
 
-	/*public Vehiculos(String Vehiculo, Double Dias) {
-		
-		Vehiculos.Vehiculo=Vehiculo;
-		Vehiculos.Dias=Dias;
-	}*/
-	
+	/*
+	 * public Vehiculos(String Vehiculo, Double Dias) {
+	 * 
+	 * Vehiculos.Vehiculo=Vehiculo; Vehiculos.Dias=Dias; }
+	 */
+
 	public void SetVehiculo(String Vehiculo) {
 
 		Vehiculos.Vehiculo = Vehiculo;
@@ -34,7 +32,7 @@ public class Vehiculos {
 		return Dias;
 	}
 
-	public  void SetCalculo() {
+	public void SetCalculo() {
 
 		switch (Vehiculo) {
 
@@ -84,11 +82,6 @@ public class Vehiculos {
 			}
 
 			break;
-
-		default:
-
-			JOptionPane.showMessageDialog(null, "Elija Alguna Marca de carro");
-
 		}
 
 	}

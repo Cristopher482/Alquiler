@@ -6,7 +6,7 @@ public class Clientes {
 	
 	private static String Direccion;
 	
-	private static int Telefono;
+	private static Double Telefono;//cmabiar de double a int
 	
 	/*public Clientes(String Nombre){
 		
@@ -22,11 +22,11 @@ public class Clientes {
 		Clientes.Nombre = Nombre;
 	}
 
-	public  int getTelefono() {
+	public  Double getTelefono() {
 		return Telefono;
 	}
 
-	public  void setTelefono(int telefono) {
+	public  void setTelefono(Double telefono) {
 		Clientes.Telefono = telefono;
 	}
 

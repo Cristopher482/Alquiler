@@ -9,25 +9,18 @@ public class Inicio_Jframe extends JFrame {
 
 	public static Inicio_Jframe ventanaInicial;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					ventanaInicial = new Inicio_Jframe();
-					ventanaInicial.setVisible(true);
+					//ventanaInicial.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
 
 	public Inicio_Jframe() {
 
@@ -37,7 +30,9 @@ public class Inicio_Jframe extends JFrame {
 		setBounds(0, 0, 363, 441);
 		setLocationRelativeTo(null);
 		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Inicio");
+		setVisible(true);
 	}
 
 }

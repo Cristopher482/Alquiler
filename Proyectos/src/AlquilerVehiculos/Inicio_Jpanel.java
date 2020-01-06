@@ -2,8 +2,6 @@ package AlquilerVehiculos;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,7 +16,7 @@ public class Inicio_Jpanel extends JPanel {
 
 	private String Contrasena;
 
-	public static Menu_Jframe ventanaMenu;
+	public static Terminos_Jframe ventanaLicencia;
 
 	public Inicio_Jpanel() {
 
@@ -43,25 +41,27 @@ public class Inicio_Jpanel extends JPanel {
 		add(lblIngreseContraena);
 
 		JButton btnContrasena = new JButton("Enter");
-		btnContrasena.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		btnContrasena.setBorder(null);
+		btnContrasena.setBackground(new Color(44, 62, 80));
+		btnContrasena.setIcon(new ImageIcon(Inicio_Jpanel.class.getResource("/image/enter.png")));
+		btnContrasena.addActionListener(e -> {
 
-				Contrasena = txtContrasena.getText().trim();
+			Contrasena = txtContrasena.getText().trim();
 
-				if (Contrasena.equals("")) {
+			if (Contrasena.equals("cris")) {
 
-					JOptionPane.showMessageDialog(null, "Debes ingresar tu contrasena");
-				} else {
+				Inicio_Jframe.ventanaInicial.dispose();
 
-					Inicio_Jframe.ventanaInicial.dispose();
+				ventanaLicencia = new Terminos_Jframe();
 
-					ventanaMenu = new Menu_Jframe();
+			} else {
 
-				}
+				JOptionPane.showMessageDialog(null, "contrasena incorrecta");
+
 			}
 		});
 		btnContrasena.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
-		btnContrasena.setBounds(124, 315, 89, 23);
+		btnContrasena.setBounds(151, 286, 49, 52);
 		add(btnContrasena);
 
 		ImageIcon Imagen = new ImageIcon("src/image/portada2.PNG");
