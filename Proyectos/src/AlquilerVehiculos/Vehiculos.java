@@ -8,7 +8,7 @@ public class Vehiculos {
 
 	private static Double Dias;
 
-	/*
+	/*buscar informacion si es igual constructor vacio y no tener constructor
 	 * public Vehiculos(String Vehiculo, Double Dias) {
 	 * 
 	 * Vehiculos.Vehiculo=Vehiculo; Vehiculos.Dias=Dias; }

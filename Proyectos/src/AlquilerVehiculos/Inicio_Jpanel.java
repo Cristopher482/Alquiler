@@ -46,19 +46,7 @@ public class Inicio_Jpanel extends JPanel {
 		btnContrasena.setIcon(new ImageIcon(Inicio_Jpanel.class.getResource("/image/enter.png")));
 		btnContrasena.addActionListener(e -> {
 
-			Contrasena = txtContrasena.getText().trim();
-
-			if (Contrasena.equals("cris")) {
-
-				Inicio_Jframe.ventanaInicial.dispose();
-
-				ventanaLicencia = new Terminos_Jframe();
-
-			} else {
-
-				JOptionPane.showMessageDialog(null, "contrasena incorrecta");
-
-			}
+			inicioSesion();
 		});
 		btnContrasena.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
 		btnContrasena.setBounds(151, 286, 49, 52);
@@ -70,5 +58,21 @@ public class Inicio_Jpanel extends JPanel {
 		lblfoto.setIcon(Imagen);
 		add(lblfoto);
 
+	}
+
+	public void inicioSesion() {
+		Contrasena = txtContrasena.getText().trim();
+
+		if (Contrasena.equals("cris")) {
+
+			Inicio_Jframe.ventanaInicial.dispose();
+
+			ventanaLicencia = new Terminos_Jframe();
+
+		} else {
+
+			JOptionPane.showMessageDialog(null, "contrasena incorrecta");
+
+		}
 	}
 }

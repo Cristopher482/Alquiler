@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public  class Terminos_Jpanel extends JPanel {
+public class Terminos_Jpanel extends JPanel {
 
 	private JLabel label1;
 
@@ -53,15 +53,8 @@ public  class Terminos_Jpanel extends JPanel {
 		check1.setBackground(new Color(44, 62, 80));
 		check1.addChangeListener(e -> {
 
-			if (check1.isSelected() == true) {
+			aceptarTerminos();
 
-				boton1.setEnabled(true);
-				boton2.setEnabled(false);
-			} else {
-
-				boton1.setEnabled(false);
-				boton2.setEnabled(true);
-			}
 		});
 		check1.setBounds(85, 184, 100, 30);
 		add(check1);
@@ -69,20 +62,17 @@ public  class Terminos_Jpanel extends JPanel {
 		boton1 = new JButton("Continuar");
 		boton1.addActionListener(e -> {
 
-			Inicio_Jpanel.ventanaLicencia.dispose();
+			Continuar();
 
-			ventanaMenu = new Menu_Jframe();
 		});
 		boton1.setBounds(39, 221, 200, 30);
 		boton1.setEnabled(false);
 		add(boton1);
 
-		boton2 = new JButton("No Acepto");
+		boton2 = new JButton("Regresar");
 		boton2.addActionListener(e -> {
 
-			Inicio_Jpanel.ventanaLicencia.dispose();
-
-			Inicio_Jframe.ventanaInicial = new Inicio_Jframe();
+			Regresar();
 
 		});
 		boton2.setBounds(39, 279, 200, 30);
@@ -91,4 +81,32 @@ public  class Terminos_Jpanel extends JPanel {
 
 	}
 
+	public void Continuar() {
+
+		Inicio_Jpanel.ventanaLicencia.dispose();
+
+		ventanaMenu = new Menu_Jframe();
+
+	}
+
+	public void Regresar() {
+
+		Inicio_Jpanel.ventanaLicencia.dispose();
+
+		Inicio_Jframe.ventanaInicial = new Inicio_Jframe();
+
+	}
+
+	public void aceptarTerminos() {
+
+		if (check1.isSelected() == true) {
+
+			boton1.setEnabled(true);
+			boton2.setEnabled(false);
+		} else {
+
+			boton1.setEnabled(false);
+			boton2.setEnabled(true);
+		}
+	}
 }

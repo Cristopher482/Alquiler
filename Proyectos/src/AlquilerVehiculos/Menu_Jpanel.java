@@ -16,6 +16,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import Tarifas.TarifaHonda;
+
 public class Menu_Jpanel extends JPanel {
 
 	private Clientes Cliente = new Clientes();
@@ -160,17 +162,31 @@ public class Menu_Jpanel extends JPanel {
 		JMenuItem mntmSalir = new JMenuItem("Salir");
 		mntmSalir.addActionListener(e -> {
 
-			Terminos_Jpanel.ventanaMenu.dispose();
+			volverAInicio();
 
-			Inicio_Jframe.ventanaInicial = new Inicio_Jframe();
 		});
 		mnOpciones.add(mntmSalir);
 
 		JMenu mnTarifas = new JMenu("Tarifas");
 		menuBar.add(mnTarifas);
 
-		JMenu mnTerminos = new JMenu("Acerca de");
+		JMenuItem mntmHonda = new JMenuItem("Honda");
+		mntmHonda.addActionListener(e -> {
 
+			TarifaHonda honda = new TarifaHonda();
+		});
+		mnTarifas.add(mntmHonda);
+
+		JMenuItem mntmToyota = new JMenuItem("Toyota");
+		mnTarifas.add(mntmToyota);
+
+		JMenuItem mntmNissan = new JMenuItem("Nissan");
+		mnTarifas.add(mntmNissan);
+
+		JMenuItem mntmBmw = new JMenuItem("Bmw");
+		mnTarifas.add(mntmBmw);
+
+		JMenu mnTerminos = new JMenu("Acerca de");
 		menuBar.add(mnTerminos);
 
 		JMenuItem mntmCreador = new JMenuItem("Creador");
@@ -178,6 +194,56 @@ public class Menu_Jpanel extends JPanel {
 		mnTerminos.add(mntmCreador);
 
 	}
+
+	// ------------------------------------- Metodos para agregar informacion
+
+	public void AgregarNombre() {
+
+		NombreCliente = textFieldNombre.getText().trim();
+		if (NombreCliente.equals("")) {
+
+			JOptionPane.showMessageDialog(null, "Debes ingresar tu nombre");
+		} else {
+			Cliente.setNombre(textFieldNombre.getText());
+		}
+
+	}
+
+	public void AgregarDireccion() {
+
+		Cliente.setDireccion(textFieldDireccion.getText());
+	}
+
+	public void AgregarTelefono() {
+
+		try {
+			Cliente.setTelefono(Long.parseLong(textFieldTelefono.getText().trim()));
+
+		} catch (Exception e) {
+
+			JOptionPane.showMessageDialog(null, "Ingrese numero telefonico");
+		}
+	}
+
+	public void AgregarMarca() {
+
+		if (Choice.getSelectedItem() != "") {
+			Vehiculo.SetVehiculo(Choice.getSelectedItem());
+		} else {
+			JOptionPane.showMessageDialog(null, "Elija Alguna Marca de carro");
+		}
+	}
+
+	public void AgregarDias() {
+
+		if (ValidarNumero(textFieldDias.getText()) == true) {
+			Vehiculo.SetDias(Double.parseDouble(textFieldDias.getText().trim()));
+		} else {
+			JOptionPane.showMessageDialog(null, "Ingrese numero dia numerico");
+		}
+	}
+
+	// ------------------------------------- otros metodos
 
 	public boolean ValidarNumero(String Numero) {
 
@@ -221,49 +287,10 @@ public class Menu_Jpanel extends JPanel {
 		textArea.setText("");
 	}
 
-	// ------------------------------------- Metodos para agregar informacion
+	public void volverAInicio() {
 
-	public void AgregarNombre() {
+		Terminos_Jpanel.ventanaMenu.dispose();
 
-		NombreCliente = textFieldNombre.getText().trim();
-		if (NombreCliente.equals("")) {
-
-			JOptionPane.showMessageDialog(null, "Debes ingresar tu nombre");
-		} else {
-			Cliente.setNombre(textFieldNombre.getText());
-		}
-
-	}
-
-	public void AgregarDireccion() {
-
-		Cliente.setDireccion(textFieldDireccion.getText());
-	}
-
-	public void AgregarTelefono() {
-		// cambiar codigo,cambiar el parseo
-		if (ValidarNumero(textFieldTelefono.getText().trim()) == true) {
-			Cliente.setTelefono(Double.parseDouble(textFieldTelefono.getText().trim()));
-		} else {
-			JOptionPane.showMessageDialog(null, "Ingrese numero telefonico");
-		}
-	}
-
-	public void AgregarMarca() {
-
-		if (Choice.getSelectedItem() != "") {
-			Vehiculo.SetVehiculo(Choice.getSelectedItem()/* (textFielMarca.getText()) */);
-		} else {
-			JOptionPane.showMessageDialog(null, "Elija Alguna Marca de carro");
-		}
-	}
-
-	public void AgregarDias() {
-
-		if (ValidarNumero(textFieldDias.getText()) == true) {
-			Vehiculo.SetDias(Integer.parseInt(textFieldDias.getText().trim()));
-		} else {
-			JOptionPane.showMessageDialog(null, "Ingrese numero dia numerico");
-		}
+		Inicio_Jframe.ventanaInicial = new Inicio_Jframe();
 	}
 }

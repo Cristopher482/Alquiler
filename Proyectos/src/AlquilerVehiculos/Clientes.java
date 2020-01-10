@@ -6,8 +6,9 @@ public class Clientes {
 	
 	private static String Direccion;
 	
-	private static Double Telefono;//cmabiar de double a int
+	private static long Telefono;
 	
+	//*buscar informacion si es igual constructor vacio y no tener constructor
 	/*public Clientes(String Nombre){
 		
 		Clientes.Nombre=Nombre;
@@ -22,11 +23,11 @@ public class Clientes {
 		Clientes.Nombre = Nombre;
 	}
 
-	public  Double getTelefono() {
+	public  long getTelefono() {
 		return Telefono;
 	}
 
-	public  void setTelefono(Double telefono) {
+	public  void setTelefono(long telefono) {
 		Clientes.Telefono = telefono;
 	}
 
@@ -42,7 +43,7 @@ public class Clientes {
 		
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(Nombre);
-		stringBuilder.append("su email es: ");
+		stringBuilder.append(" su email es: ");
 		stringBuilder.append(Direccion);
 		stringBuilder.append(" y su numero de telefono es ");
 		stringBuilder.append(Telefono);
