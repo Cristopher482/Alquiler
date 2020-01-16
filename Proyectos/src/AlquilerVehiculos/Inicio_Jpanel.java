@@ -44,10 +44,7 @@ public class Inicio_Jpanel extends JPanel {
 		btnContrasena.setBorder(null);
 		btnContrasena.setBackground(new Color(44, 62, 80));
 		btnContrasena.setIcon(new ImageIcon(Inicio_Jpanel.class.getResource("/image/enter.png")));
-		btnContrasena.addActionListener(e -> {
-
-			inicioSesion();
-		});
+		btnContrasena.addActionListener(e ->inicioSesion());
 		btnContrasena.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
 		btnContrasena.setBounds(151, 286, 49, 52);
 		add(btnContrasena);

@@ -160,11 +160,7 @@ public class Menu_Jpanel extends JPanel {
 		menuBar.add(mnOpciones);
 
 		JMenuItem mntmSalir = new JMenuItem("Salir");
-		mntmSalir.addActionListener(e -> {
-
-			volverAInicio();
-
-		});
+		mntmSalir.addActionListener(e ->volverAInicio());
 		mnOpciones.add(mntmSalir);
 
 		JMenu mnTarifas = new JMenu("Tarifas");

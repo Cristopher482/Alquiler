@@ -51,30 +51,18 @@ public class Terminos_Jpanel extends JPanel {
 		check1 = new JCheckBox("Yo  Acepto");
 		check1.setForeground(Color.WHITE);
 		check1.setBackground(new Color(44, 62, 80));
-		check1.addChangeListener(e -> {
-
-			aceptarTerminos();
-
-		});
+		check1.addChangeListener(e -> aceptarTerminos());
 		check1.setBounds(85, 184, 100, 30);
 		add(check1);
 
 		boton1 = new JButton("Continuar");
-		boton1.addActionListener(e -> {
-
-			Continuar();
-
-		});
+		boton1.addActionListener(e -> Continuar());
 		boton1.setBounds(39, 221, 200, 30);
 		boton1.setEnabled(false);
 		add(boton1);
 
 		boton2 = new JButton("Regresar");
-		boton2.addActionListener(e -> {
-
-			Regresar();
-
-		});
+		boton2.addActionListener(e -> Regresar());
 		boton2.setBounds(39, 279, 200, 30);
 		boton2.setEnabled(true);
 		add(boton2);
