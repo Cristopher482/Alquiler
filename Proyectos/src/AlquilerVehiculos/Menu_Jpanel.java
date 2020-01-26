@@ -279,7 +279,7 @@ public class Menu_Jpanel extends JPanel {
 	}
 
 	public void volverAInicio() {
-
+	
 		Terminos_Jpanel.ventanaMenu.dispose();
 
 		Inicio_Jframe.ventanaInicial = new Inicio_Jframe();
