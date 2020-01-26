@@ -3,6 +3,7 @@ package AlquilerVehiculos;
 import java.awt.Choice;
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,20 +21,14 @@ import Tarifas.TarifaHonda;
 
 public class Menu_Jpanel extends JPanel {
 
-	private Clientes Cliente = new Clientes();
-
-	private Vehiculos Vehiculo = new Vehiculos();
-
-	private Choice Choice = new Choice();
-
+	private JLabel LabelFoto,lblNombre,lblMarca,lblDias,lbldireccion,lbltelefono,lblIngreseSuInfromacion;
 	private JTextField textFieldNombre, textFieldDias, textFieldDireccion, textFieldTelefono;
-
+	private JButton btnborrar,btnCalcular,btnDatos;
 	private JTextArea textArea;
-
 	private ImageIcon Imagen;
-
-	private JLabel LabelFoto;
-
+	private Clientes Cliente = new Clientes();
+	private Vehiculos Vehiculo = new Vehiculos();
+	private Choice Choice = new Choice();
 	private String NombreCliente = "";
 
 	public Menu_Jpanel() {
@@ -41,19 +36,19 @@ public class Menu_Jpanel extends JPanel {
 		setLayout(null);
 		setBackground(new Color(44, 62, 80));
 
-		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre = new JLabel("Nombre");
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNombre.setForeground(new Color(255, 255, 255));
 		lblNombre.setBounds(33, 136, 76, 14);
 		add(lblNombre);
 
-		JLabel lblMarca = new JLabel("Marca");
+		lblMarca = new JLabel("Marca");
 		lblMarca.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblMarca.setForeground(Color.WHITE);
 		lblMarca.setBounds(308, 136, 46, 14);
 		add(lblMarca);
 
-		JLabel lblDias = new JLabel("Dias");
+		lblDias = new JLabel("Dias");
 		lblDias.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblDias.setForeground(Color.WHITE);
 		lblDias.setBounds(308, 212, 46, 14);
@@ -76,7 +71,7 @@ public class Menu_Jpanel extends JPanel {
 		scroll.setBounds(225, 288, 380, 111);
 		add(scroll);
 
-		JButton btnDatos = new JButton("Datos");
+		btnDatos = new JButton("Datos");
 		btnDatos.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnDatos.addActionListener(e -> {
 			AgregarNombre();
@@ -89,7 +84,7 @@ public class Menu_Jpanel extends JPanel {
 		btnDatos.setBackground(Color.GREEN);
 		add(btnDatos);
 
-		JButton btnCalcular = new JButton("Calcular");
+		btnCalcular = new JButton("Calcular");
 		btnCalcular.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnCalcular.setBackground(new Color(34, 167, 240));
 		btnCalcular.addActionListener(e -> {
@@ -102,6 +97,7 @@ public class Menu_Jpanel extends JPanel {
 		btnCalcular.setBounds(10, 425, 89, 23);
 		add(btnCalcular);
 
+		
 		Choice.addItemListener(arg0 -> CambioLogo());
 		Choice.setBounds(308, 161, 129, 20);
 		Choice.add("");
@@ -115,7 +111,7 @@ public class Menu_Jpanel extends JPanel {
 		LabelFoto.setBounds(449, 152, 46, 45);
 		add(LabelFoto);
 
-		JLabel lbldireccion = new JLabel("Direccion");
+		lbldireccion = new JLabel("Direccion");
 		lbldireccion.setForeground(Color.WHITE);
 		lbldireccion.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lbldireccion.setBounds(33, 212, 76, 14);
@@ -127,7 +123,7 @@ public class Menu_Jpanel extends JPanel {
 		add(textFieldDireccion);
 		textFieldDireccion.setColumns(10);
 
-		JLabel lbltelefono = new JLabel("Telefono");
+		lbltelefono = new JLabel("Telefono");
 		lbltelefono.setForeground(Color.WHITE);
 		lbltelefono.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lbltelefono.setBounds(33, 281, 76, 14);
@@ -138,14 +134,14 @@ public class Menu_Jpanel extends JPanel {
 		add(textFieldTelefono);
 		textFieldTelefono.setColumns(10);
 
-		JButton btnborrar = new JButton("Borrar");
+		btnborrar = new JButton("Borrar");
 		btnborrar.addActionListener(arg0 -> borrarInformacion());
 		btnborrar.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnborrar.setBackground(new Color(242, 38, 19));
 		btnborrar.setBounds(499, 425, 89, 23);
 		add(btnborrar);
 
-		JLabel lblIngreseSuInfromacion = new JLabel("Ingrese su infromacion");
+		lblIngreseSuInfromacion = new JLabel("Ingrese su infromacion");
 		lblIngreseSuInfromacion.setForeground(Color.WHITE);
 		lblIngreseSuInfromacion.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		lblIngreseSuInfromacion.setBounds(175, 56, 287, 46);
@@ -160,7 +156,7 @@ public class Menu_Jpanel extends JPanel {
 		menuBar.add(mnOpciones);
 
 		JMenuItem mntmSalir = new JMenuItem("Salir");
-		mntmSalir.addActionListener(e ->volverAInicio());
+		mntmSalir.addActionListener(e -> volverAInicio());
 		mnOpciones.add(mntmSalir);
 
 		JMenu mnTarifas = new JMenu("Tarifas");

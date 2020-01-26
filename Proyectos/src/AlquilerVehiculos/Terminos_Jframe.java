@@ -5,9 +5,8 @@ import javax.swing.JFrame;
 
 public class Terminos_Jframe extends JFrame {
 
-	
 	public Terminos_Jframe() {
-		Terminos_Jpanel lamina=new Terminos_Jpanel();
+		Terminos_Jpanel lamina = new Terminos_Jpanel();
 		add(lamina);
 		setIconImage(new ImageIcon(getClass().getResource("/image/portada.png")).getImage());
 		setTitle("Licencia de uso");

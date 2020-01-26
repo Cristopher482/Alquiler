@@ -14,7 +14,7 @@ public class Inicio_Jframe extends JFrame {
 			public void run() {
 				try {
 					ventanaInicial = new Inicio_Jframe();
-					//ventanaInicial.setVisible(true);
+					// ventanaInicial.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

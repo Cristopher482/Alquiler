@@ -2,34 +2,37 @@ package AlquilerVehiculos;
 
 public class Vehiculos {
 
-	private static String Vehiculo;
+	private String Vehiculo;
+	private Double Resultado;
+	private Double Dias;
 
-	private static Double Resultado;
+	// --Constructors
 
-	private static Double Dias;
+	public Vehiculos() {
 
-	/*buscar informacion si es igual constructor vacio y no tener constructor
-	 * public Vehiculos(String Vehiculo, Double Dias) {
-	 * 
-	 * Vehiculos.Vehiculo=Vehiculo; Vehiculos.Dias=Dias; }
-	 */
+	}
+
+	public Vehiculos(String Vehiculo) {
+
+		this.Vehiculo = Vehiculo;
+	}
+
+	public Vehiculos(String Vehiculo, Double Dias) {
+
+		this.Vehiculo = Vehiculo;
+		this.Dias = Dias;
+	}
+
+	// --SETTERS
 
 	public void SetVehiculo(String Vehiculo) {
 
-		Vehiculos.Vehiculo = Vehiculo;
-	}
-
-	public String getVehiculo() {
-		return Vehiculo;
+		this.Vehiculo = Vehiculo;
 	}
 
 	public void SetDias(double Dias) {
 
-		Vehiculos.Dias = Dias;
-	}
-
-	public Double getDias() {
-		return Dias;
+		this.Dias = Dias;
 	}
 
 	public void SetCalculo() {
@@ -86,15 +89,25 @@ public class Vehiculos {
 
 	}
 
+	// --GETTERS
+
+	public String getVehiculo() {
+		return this.Vehiculo;
+	}
+
+	public Double getDias() {
+		return this.Dias;
+	}
+
 	public String toString() {
 
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(" Los dias de alquiler fueron ");
-		stringBuilder.append(Math.round(Dias));
+		stringBuilder.append(Math.round(this.Dias));
 		stringBuilder.append(" y el costo total por alquiler de la marca ");
-		stringBuilder.append(Vehiculo);
+		stringBuilder.append(this.Vehiculo);
 		stringBuilder.append(" fue de ");
-		stringBuilder.append(Math.round(Resultado));
+		stringBuilder.append(Math.round(this.Resultado));
 		return stringBuilder.toString();
 	}
 

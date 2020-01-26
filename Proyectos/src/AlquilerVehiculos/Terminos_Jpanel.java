@@ -13,15 +13,10 @@ import javax.swing.JTextArea;
 public class Terminos_Jpanel extends JPanel {
 
 	private JLabel label1;
-
 	private JCheckBox check1;
-
 	private JButton boton1, boton2;
-
 	private JScrollPane scrollpane1;
-
 	private JTextArea textarea1;
-
 	public static Menu_Jframe ventanaMenu;
 
 	public Terminos_Jpanel() {
