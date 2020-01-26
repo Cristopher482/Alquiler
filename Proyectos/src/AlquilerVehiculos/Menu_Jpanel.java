@@ -3,7 +3,6 @@ package AlquilerVehiculos;
 import java.awt.Choice;
 import java.awt.Color;
 import java.awt.Font;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
